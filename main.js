@@ -1,6 +1,6 @@
 $(document).ready(function(){
     //devo spostare la classe active alla foto successiva ogni 3 sec
-    setInterval(function () {
+    var clock = setInterval(function () {
         var imgCurrent = $('img.active');
         var imgNext = imgCurrent.next('img');
         var bulletCurrent = $('i.active');
@@ -14,4 +14,9 @@ $(document).ready(function(){
         imgNext.addClass('active');
         bulletNext.addClass('active');
     }, 3000);
+    //fermati appena clicco su una freccetta
+    $('.icon').click(function(){
+        clearInterval(clock);
+    });
+
 })
